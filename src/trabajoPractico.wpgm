@@ -1,0 +1,10 @@
+import wollok.game.*
+
+program abc {
+	// CONFIG	
+	game.title("BolitasRebotinas")
+	game.height(20)
+	game.width(20)
+//	game.ground("ground.png")
+	game.start()
+}
