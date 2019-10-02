@@ -10,8 +10,6 @@ object tablero {
 		
 	}
 	
-	
-	
 	method crearBolita() {
 		var bolita = new Bolita(color = self.eligeColor(), velocidadEnX = self.determinaVelX(), velocidadEnY = self.determinaVelX())
 	}
@@ -26,6 +24,10 @@ object tablero {
 	
 	method determinaVelY() {
 		return 0.randomUpTo((game.height()))
+	}
+	
+	method crearJugador() {
+		var jugador = new Jugador(color = self.eligeColor())
 	}
 	
 }
