@@ -1,4 +1,8 @@
 import wollok.game.*
+import juego.*
+import tableroInicial.*
+
+
 
 class Bolita {
 	var property color
