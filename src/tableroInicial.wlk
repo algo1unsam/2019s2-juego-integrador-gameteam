@@ -19,11 +19,11 @@ object tablero {
 	}
 	
 	method determinaVelX() {
-		return 0.randomUpTo((game.width()))
+		return 0.randomUpTo((game.width())) //falta redondear
 	}
 	
 	method determinaVelY() {
-		return 0.randomUpTo((game.height()))
+		return 0.randomUpTo((game.height()))  //falta redondear
 	}
 	
 	method crearJugador() {
