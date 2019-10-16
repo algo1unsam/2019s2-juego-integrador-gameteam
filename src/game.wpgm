@@ -1,3 +1,4 @@
+//Desde esta Pantalla se ejecuta visual del juego
 import wollok.game.* 
 import tableroInicial.*
 
