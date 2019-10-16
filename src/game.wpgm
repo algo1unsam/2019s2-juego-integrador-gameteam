@@ -1,0 +1,14 @@
+import wollok.game.* 
+import tableroInicial.*
+
+program Bolitas {
+	game.title("Bolita")
+	game.height(10)
+	game.width(10)
+	game.ground("suelo.png")
+
+  
+	nivel1.cargar()
+	
+	game.start()
+}
