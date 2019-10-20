@@ -12,7 +12,7 @@ object tablero {
 			//self.crearBolita()
 			game.addVisual(new Bolita(color = self.eligeColor(), velocidadEnX = self.determinaVelX(), velocidadEnY = self.determinaVelY()))
 			cantBolitasCreadas += 1}
-	}
+	} 
 	
 	/*method crearBolita() {
 		var bolita = new Bolita(color = self.eligeColor(), velocidadEnX = self.determinaVelX(), velocidadEnY = self.determinaVelY())
@@ -30,8 +30,15 @@ object tablero {
 		return 0.randomUpTo((game.height())).roundUp()  
 	}
 	
-	method crearJugador() {
-		var jugador = new Jugador(color = self.eligeColor())
-	}
+	//jugador
+	//method crearJugador() {
+	//	var jugador = new Jugador(color = self.eligeColor())
+	//}
+	
+	game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
+	game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
+	game.whenCollideDo(paredSuperior, {bolita => bolita.invertirVelocidadY()})
+	game.whenCollideDo(paredInferior, {bolita => bolita.invertirVelocidadY()})
+	
 	
 }

@@ -12,12 +12,20 @@ class Bolita {
 		position = unaPosicion
 	}
 
-	method velocidadX(velX) {
-		self.moverseHacia(self.position().right(velX))
+	method velocidadX() {
+		self.moverseHacia(self.position().right(velocidadEnX))
+	}
+	
+	method invertirVelocidadX() {
+		velocidadEnX *= -1
+	}
+	
+	method invertirVelocidadY() {
+		velocidadEnY *= -1
 	}
 
-	method velocidadY(velY) {
-		self.moverseHacia(self.position().up(velY))
+	method velocidadY() {
+		self.moverseHacia(self.position().up(velocidadEnY))
 	}
 
 	method movete(direccion) {
