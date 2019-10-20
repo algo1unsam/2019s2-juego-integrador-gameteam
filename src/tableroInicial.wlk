@@ -7,23 +7,27 @@ object tablero {
 
 	
 	method crearBolitas(unaCantidadDeBolitas) {
-		
+		var cantBolitasCreadas = 0
+		if(cantBolitasCreadas < unaCantidadDeBolitas) { 
+			//self.crearBolita()
+			game.addVisual(new Bolita(color = self.eligeColor(), velocidadEnX = self.determinaVelX(), velocidadEnY = self.determinaVelY()))
+			cantBolitasCreadas += 1}
 	}
 	
-	method crearBolita() {
-		var bolita = new Bolita(color = self.eligeColor(), velocidadEnX = self.determinaVelX(), velocidadEnY = self.determinaVelX())
-	}
+	/*method crearBolita() {
+		var bolita = new Bolita(color = self.eligeColor(), velocidadEnX = self.determinaVelX(), velocidadEnY = self.determinaVelY())
+	}*/
 	
 	method eligeColor() {
 		return colores.anyOne()
 	}
 	
 	method determinaVelX() {
-		return 0.randomUpTo((game.width())) //falta redondear
+		return 0.randomUpTo((game.width())).roundUp() 
 	}
 	
 	method determinaVelY() {
-		return 0.randomUpTo((game.height()))  //falta redondear
+		return 0.randomUpTo((game.height())).roundUp()  
 	}
 	
 	method crearJugador() {
