@@ -7,7 +7,7 @@ class Bolita {
 	var property velocidadEnX
 	var property velocidadEnY
 
-	method imagen() = "bolita.png" // "bolita" /*/+ color/ + ".png" no ingresa de la forma comentada
+	method image() = "bolita.png" // "bolita" /*/+ color/ + ".png" no ingresa de la forma comentada
 
 	method moverseHacia(unaPosicion) {
 		position = unaPosicion
