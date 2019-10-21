@@ -1,4 +1,6 @@
 import wollok.game.*
+import tableroInicial.*
+import pared.*
 
 program abc {
 	// CONFIG	
@@ -7,4 +9,12 @@ program abc {
 	game.width(20)
 //	game.ground("ground.png")
 	game.start()
+	
+	
+ /* game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
+	game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
+	game.whenCollideDo(paredSuperior, {bolita => bolita.invertirVelocidadY()})
+	game.whenCollideDo(paredInferior, {bolita => bolita.invertirVelocidadY()})*/
+	
+	tablero.crearBolita()
 }

@@ -1,7 +1,8 @@
 import wollok.game.*
+import tableroInicial.*
 class Bolita {
 
-	var property color
+	//var property color
 	var property position = game.center()
 	var property velocidadEnX
 	var property velocidadEnY
