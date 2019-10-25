@@ -4,12 +4,14 @@ import tableroInicial.*
 
 program Bolitas {
 	game.title("Bolita")
-	game.height(10)
-	game.width(10)
+	game.height(8)
+	game.width(14)
 	game.ground("suelo.png")
 
   
 	nivel1.cargar()
+	
+	
 	
 	game.start()
 }
