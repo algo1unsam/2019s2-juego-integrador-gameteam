@@ -53,9 +53,15 @@ object jugador {
 	}
 	
 	method image() = "jugador.png"
-//	method position() = position
-//	method position(_position) {
-//		position = _position
-//	} 
+    
+    method perder() {
+    	game.removeVisual(self)
+    	game.addVisual(calavera)
+    	game.addVisual(cero)    //en el contadorcontador 0 vidas 
+    } 
+    
+    method perderUnaVida() {
+    	vidas -=1
+    }
 }
 
