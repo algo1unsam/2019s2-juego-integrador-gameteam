@@ -27,7 +27,8 @@ program abc {
    game.whenCollideDo(jugador, {bolita => if(bolita.getcolor() == jugador.getColor()) bolita.desaparecer()}*/
 
 	
-	tablero.crearBolita()
+	tablero.crearBolitas(10)
+	tablero.crearJugador()
 	//game.onTick(, "movimientoBolita",bolita.velocidadX())
 	game.start()
 }

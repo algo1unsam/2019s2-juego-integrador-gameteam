@@ -1,7 +1,8 @@
 import wollok.game.*
 import direcciones.*
 
-object jugador {
+class Jugador {
+	var property colorJugador
 	var property position = game.at(4, 3)
 	var direccion = arriba
 

@@ -6,14 +6,22 @@ import jugador.*
 object tablero {
 
 	 var property bolitas = []
-	 var property colores = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ]
+	 var property colores = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ] 
+	 
+	 
 	method crearBolitas(unaCantidadDeBolitas) {
-		time(unaCantidadDeBolitas){self.crearBolita()}
+		time(unaCantidadDeBolitas){
+			self.crearBolita()
+			}
 	}
  
 	method crearBolita() {
-		var bolita = new Bolita(color = self.elegirColor(), velocidadEnX = self.determinarVelX(), velocidadEnY = self.determinarVelY())
+		var colorElegido = colores.anyOne()
+		var velX = 0.randomUpTo((game.width())).roundUp()
+		var velY = 0.randomUpTo((game.width())).roundUp()
+		var bolita = new Bolita(color = colorElegido, velocidadEnX = velX, velocidadEnY = velY)
 		game.addVisual(bolita)
+		bolitas.add(bolita)
 		}
 
 	// PAREDES
@@ -32,21 +40,12 @@ object tablero {
 	 * 	game.addVisual(dibujo)
 	 * 	return dibujo
 	 }*/
-	 	method elegirColor() {
-	 		return colores.anyOne()
-	 }
 	 
-	method determinarVelX() {
-		return 0.randomUpTo((game.width())).roundUp()
-	}
 
-	method determinarVelY() {
-		return 0.randomUpTo((game.height())).roundUp()
-	}
 
-// jugador
-// method crearJugador() {
-// var jugador = new Jugador(color = self.eligeColor())
-// }
+ method crearJugador() {
+ 	var colorElegido = colores.anyOne()
+ 	var jugador = new Jugador(color = colorElegido)
+ }
 }
 
