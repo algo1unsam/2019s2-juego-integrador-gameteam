@@ -10,29 +10,21 @@ program abc {
 	game.height(20)
 	game.width(20)
 //	game.ground("ground.png")
-	
-	// VISUALES
+		// VISUALES
 	game.addVisual(jugador)
 	tablero.crearBolitas(10)
-	
-	
- /* game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
-	game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
-	game.whenCollideDo(paredSuperior, {bolita => bolita.invertirVelocidadY()})
-	game.whenCollideDo(paredInferior, {bolita => bolita.invertirVelocidadY()})
-	
-	
-	
-	
-	*/
-	
-/* game.whenCollideDo(bolitaNegra, {jugador => if(bolitaNegra.getPeligrosidad() > 10) jugador.perder()
-  											else jugador.perderUnaVida()}) 
-   game.whenCollideDo(jugador, {bolita => if(bolita.getcolor() == jugador.getColor()) bolita.desaparecer()}*/
-
-	
-
-	
-	//game.onTick(, "movimientoBolita",bolita.velocidadX())
+		/* game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
+		 * 	game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
+		 * 	game.whenCollideDo(paredSuperior, {bolita => bolita.invertirVelocidadY()})
+		 * 	game.whenCollideDo(paredInferior, {bolita => bolita.invertirVelocidadY()})
+		 * 	
+		 * 	
+		 * 	
+		 * 	
+		 */
+		/* game.whenCollideDo(bolitaNegra, {jugador => if(bolitaNegra.getPeligrosidad() > 10) jugador.perder()
+		 *   											else jugador.perderUnaVida()}) 
+		 game.whenCollideDo(jugador, {bolita => if(bolita.getcolor() == jugador.getColor()) bolita.desaparecer()}*/
+		// game.onTick(, "movimientoBolita",bolita.velocidadX())
 	game.start()
 }
