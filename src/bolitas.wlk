@@ -11,7 +11,7 @@ class Bolita {
 	method image() = "bolita.png"
 
 	method avanzar() {
-		position = game.at(self.dirX(), self.dirY())
+		position = self.position().up(1)
 		return position
 	}
 
@@ -29,7 +29,7 @@ class Bolita {
 
 }
 
-}
+
 
 class Dir {
 
