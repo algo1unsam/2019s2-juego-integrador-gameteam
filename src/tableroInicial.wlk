@@ -10,7 +10,7 @@ object tablero {
 	var cantBolitasColorJugador = 0
 
 	method crearBolitas(unaCantidadDeBolitas) {
-		time
+		times
 		(unaCantidadDeBolitas)
 		{ self.crearBolita()}
 	}
@@ -28,6 +28,10 @@ object tablero {
 		bolitas.forEach({ bolita =>
 			if (bolita.color() == jugador.colorJugador()) cantBolitasColorJugador += 1
 		})
+	}
+	
+	method eliminarBolitaColorJugador() {
+		cantBolitasColorJugador += -1
 	}
 
 // PAREDES

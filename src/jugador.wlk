@@ -68,3 +68,8 @@ object jugador {
 
 }
 
+object jugadorGanador{
+	
+	method image() = "jugadorGanador.png"
+}
+

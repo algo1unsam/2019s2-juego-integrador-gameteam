@@ -1,5 +1,6 @@
 import wollok.game.*
 import tableroInicial.*
+import jugador.*
 
 class Bolita {
 
@@ -43,9 +44,10 @@ class Bolita {
 
 	method desaparecer() {
 		game.removeVisual(self)
-		tablero.cantBolitasDelColorDelJugador(bolitasrestantes -= 1) // restar una bolita y mostrar el contador con una menos
-		game.addvisual(tablero.getCantBolitasDelColorDelJugador()) // en contador de cant de bolitas del color del jugador
-		if (tablero.cantBolitasDelColorDelJugador == 0) {
+		tablero.eliminarBolitaColorJugador() // FALTA contador con una menos
+		game.addvisual(tablero.getCantBolitasDelColorDelJugador()) // FALTA METODO BIEN en contador de cant de bolitas del color del jugador
+		if (tablero.cantBolitasColorJugador() == 0) {
+			jugador.position(jugador.position())
 			game.addVisual(jugadorGanador)
 			game.addVisual(win) // en contador de vidas
 		}
