@@ -2,6 +2,7 @@ import wollok.game.*
 import tableroInicial.*
 import pared.*
 import bolitas.*
+import jugador.*
 
 program abc {
 	// CONFIG	
@@ -10,6 +11,9 @@ program abc {
 	game.width(20)
 //	game.ground("ground.png")
 	
+	// VISUALES
+	game.addVisual(jugador)
+	tablero.crearBolitas(10)
 	
 	
  /* game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
@@ -23,12 +27,12 @@ program abc {
 	*/
 	
 /* game.whenCollideDo(bolitaNegra, {jugador => if(bolitaNegra.getPeligrosidad() > 10) jugador.perder()
- * 											else jugador.perderUnaVida()}) 
+  											else jugador.perderUnaVida()}) 
    game.whenCollideDo(jugador, {bolita => if(bolita.getcolor() == jugador.getColor()) bolita.desaparecer()}*/
 
 	
-	tablero.crearBolitas(10)
-	tablero.crearJugador()
+
+	
 	//game.onTick(, "movimientoBolita",bolita.velocidadX())
 	game.start()
 }

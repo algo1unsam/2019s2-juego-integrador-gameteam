@@ -50,6 +50,7 @@ class Bolita {
 
 class BolitaNegra inherits Bolita {
 	var property peligrosidad = 0
+	var property color = negra
 	
 	method image() = "bolitaNegra" + peligrosidad.toString() + ".png"
  	

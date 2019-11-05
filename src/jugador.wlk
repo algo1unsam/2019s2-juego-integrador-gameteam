@@ -1,10 +1,14 @@
 import wollok.game.*
 import direcciones.*
 
-class Jugador {
-	var property colorJugador
+object jugador {
+	var property colorJugador = ["amarilla", "roja", "azul", "naranja", "lila", "verde"].anyOne()
 	var property position = game.at(4, 3)
+	var property vidas = 3
+	
 	var direccion = arriba
+	
+	method image() = "jugador" + colorJugador + ".png"
 
 	method empuja(unElemento) {
 		try
@@ -53,12 +57,11 @@ class Jugador {
 		direccion = unaDireccion
 	}
 	
-	method image() = "jugador.png"
     
     method perder() {
     	game.removeVisual(self)
     	game.addVisual(calavera)
-    	game.addVisual(cero)    //en el contadorcontador 0 vidas 
+    	game.addVisual(cero)    //en el contador 0 vidas 
     } 
     
     method perderUnaVida() {

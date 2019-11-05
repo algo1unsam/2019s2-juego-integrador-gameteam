@@ -7,6 +7,7 @@ object tablero {
 
 	 var property bolitas = []
 	 var property colores = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ] 
+	 var cantBolitasColorJugador = 0
 	 
 	 
 	method crearBolitas(unaCantidadDeBolitas) {
@@ -23,6 +24,13 @@ object tablero {
 		game.addVisual(bolita)
 		bolitas.add(bolita)
 		}
+		
+		
+	method contarCuantasBolitasSonColorJugador() {
+		bolitas.forEach({bolita => if(bolita.color() == jugador.colorJugador()) cantBolitasColorJugador += 1})
+	}
+	
+
 
 	// PAREDES
 	/*method cargar() {
@@ -41,11 +49,6 @@ object tablero {
 	 * 	return dibujo
 	 }*/
 	 
-
-
- method crearJugador() {
- 	var colorElegido = colores.anyOne()
- 	var jugador = new Jugador(color = colorElegido)
- }
+		
 }
 
