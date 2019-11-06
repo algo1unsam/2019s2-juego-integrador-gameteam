@@ -1,3 +1,4 @@
+
 import wollok.game.*
 import direcciones.*
 
@@ -72,4 +73,3 @@ object jugadorGanador{
 	
 	method image() = "jugadorGanador.png"
 }
-
