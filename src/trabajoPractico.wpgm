@@ -1,4 +1,5 @@
 
+
 import wollok.game.*
 import tableroInicial.*
 import pared.*
@@ -10,10 +11,13 @@ program abc {
 	game.title("BolitasRebotinas")
 	game.height(20)
 	game.width(20)
+	game.ground("suelo.png")
 //	game.ground("ground.png")
 		// VISUALES
 	game.addVisual(jugador)
 	tablero.crearBolitas(10)
+	
+	nivel1.cargar()
 		/* game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
 		 * 	game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
 		 * 	game.whenCollideDo(paredSuperior, {bolita => bolita.invertirVelocidadY()})
@@ -29,3 +33,16 @@ program abc {
 		// game.onTick(, "movimientoBolita",bolita.velocidadX())
 	game.start()
 }
+
+//Desde esta Pantalla se ejecuta visual del juego
+
+
+
+
+
+  
+	
+	
+	game.start()
+}
+
