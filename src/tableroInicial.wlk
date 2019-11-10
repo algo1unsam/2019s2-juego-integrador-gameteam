@@ -115,6 +115,14 @@ object tablero {
 		bolitas.add(bolita)
 	}
 	
+	method crearBolitaNegra() {
+		//var velX = 0.randomUpTo((game.width())).roundUp()
+		//var velY = 0.randomUpTo((game.width())).roundUp()
+		var bolitaNegra = new BolitaNegra(color = "negra", velocidadEnX = 0.randomUpTo((game.width()/2)).roundUp(), velocidadEnY = 0.randomUpTo((game.width()/2)).roundUp())
+		game.addVisual(bolitaNegra)
+		
+	}
+	
 	
 	
 }

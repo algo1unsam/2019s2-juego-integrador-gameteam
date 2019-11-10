@@ -86,3 +86,15 @@ class Bolita {
 	
 	
 	}
+	
+	
+	class BolitaNegra inherits Bolita {
+
+	var property peligrosidad = 0
+
+	
+	override method image() = "bolitanegra" + peligrosidad.toString() + ".png"
+
+
+
+}

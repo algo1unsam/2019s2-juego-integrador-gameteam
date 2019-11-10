@@ -13,8 +13,12 @@ program abc {
 //	game.ground("ground.png")
 		// VISUALES
 	tablero.crearBolita()
+	//tablero.crearBolitaNegra()
+	
 		// game.addVisual(jugador)
-		// tablero.crearBolitas(10)
+	//tablero.crearBolita()
+	//tablero.crearBolita()
+	//tablero.crearBolita()
 		// nivel1.cargar()
 		/* game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
 		 * 	game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
@@ -28,10 +32,10 @@ program abc {
 		/* game.whenCollideDo(bolitaNegra, {jugador => if(bolitaNegra.getPeligrosidad() > 10) jugador.perder()
 		 *   											else jugador.perderUnaVida()}) 
 		 game.whenCollideDo(jugador, {bolita => if(bolita.getcolor() == jugador.getColor()) bolita.desaparecer()}*/
-	//game.onTick(600, "movimientoBolita", { tablero.bolitas().forEach({ bolita =>
-	//	bolita.moverseSegunVelocidadX()
-	//	bolita.moverseSegunVelocidadY()
-	//}) })
+    game.onTick(100, "movimientoBolita", { tablero.bolitas().forEach({ bolita =>
+		bolita.moverseSegunVelocidadX()
+		bolita.moverseSegunVelocidadY()
+	}) })
 	game.start()
 }
 //Desde esta Pantalla se ejecuta visual del juego
