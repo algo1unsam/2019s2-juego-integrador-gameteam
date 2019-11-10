@@ -35,10 +35,12 @@ class BolitaNegra inherits Bolita {
 
 	override invertirVelocidadX() {
 		velocidadEnX *= -2
+		if(peligrosidad < 8) peligrosidad +=1
 	}
 
 	override invertirVelocidadY() {
 		velocidadEnY *= -2
+	    if(peligrosidad < 8) peligrosidad +=1
 	}
 
 }

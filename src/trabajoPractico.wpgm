@@ -13,7 +13,8 @@ program abc {
 //	game.ground("ground.png")
 		// VISUALES
 	tablero.crearBolita()
-	//tablero.crearBolitaNegra()
+	tablero.crearBolitaNegra()
+	tablero.crearParedes()
 	
 		// game.addVisual(jugador)
 	//tablero.crearBolita()

@@ -17,14 +17,7 @@ import jugador.*
 		{ self.crearBolita()}
 	}
 
-	method crearBolita() {
-		var colorElegido = colores.anyOne()
-		var velX = 0.randomUpTo((game.width())).roundUp()
-		var velY = 0.randomUpTo((game.width())).roundUp()
-		var bolita = new Bolita(color = colorElegido, velocidadEnX = velX, velocidadEnY = velY)
-		game.addVisual(bolita)
-		bolitas.add(bolita)
-	}
+	
 
 	method contarCuantasBolitasSonColorJugador() {
 		bolitas.forEach({ bolita =>
@@ -45,11 +38,14 @@ object nivel1 {
 		const ancho = game.width() - 1
 		const largo = game.height() - 1
 		var posParedes = []
-		(0 .. ancho).forEach{ n => posParedes.add(new Position(x = n, y = 0))} // bordeAbajo
-		(0 .. ancho).forEach{ n => posParedes.add(new Position(x = n, y = largo))} // bordeArriba 
-		(0 .. largo).forEach{ n => posParedes.add(new Position(x = 0, y = n))} // bordeIzq 
-		(0 .. largo).forEach{ n => posParedes.add(new Position(x = ancho, y = n))} // bordeDer
-		posParedes.forEach{ p => self.dibujar(new Pared(position = p))}
+		(0 .. ancho).forEach{ n => posParedInferior.add(new Position(x = n, y = 0))} // bordeAbajo
+		(0 .. ancho).forEach{ n => posParedSuperior.add(new Position(x = n, y = largo))} // bordeArriba 
+		(0 .. largo).forEach{ n => posParedIzquierda.add(new Position(x = 0, y = n))} // bordeIzq 
+		(0 .. largo).forEach{ n => posParedDerecha.add(new Position(x = ancho, y = n))} // bordeDer
+		posParedInferior.forEach({p => self.dibujar(new ParedInferior(position = p)})
+		posParedSuperior.forEach({p => self.dibujar(new ParedSuperior(position = p)})
+		posParedIzquierda.forEach({p => self.dibujar(new ParedIzquierda(position = p)})
+		posParedDerecha.forEach({p => self.dibujar(new ParedSuperior(position = p)})
 		
 		// BOLITAS
 		var posBolitas =[]
@@ -105,24 +101,46 @@ object tablero {
 
 	var property bolitas = []
 	var property colores = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ]
+	var posParedInferior = []
+	var posParedSuperior = []
+	var posParedDerecha = []
+	var posParedIzquierda = []
 	
 	method crearBolita() {
-		//var colorElegido = colores.anyOne()
-		//var velX = 0.randomUpTo((game.width())).roundUp()
-		//var velY = 0.randomUpTo((game.width())).roundUp()
+		
 		var bolita = new Bolita(color = colores.anyOne(), velocidadEnX = 0.randomUpTo((game.width()/2)).roundUp(), velocidadEnY =  0.randomUpTo((game.width()/2)).roundUp())
 		game.addVisual(bolita)
 		bolitas.add(bolita)
 	}
 	
 	method crearBolitaNegra() {
-		//var velX = 0.randomUpTo((game.width())).roundUp()
-		//var velY = 0.randomUpTo((game.width())).roundUp()
-		var bolitaNegra = new BolitaNegra(color = "negra", velocidadEnX = 0.randomUpTo((game.width()/2)).roundUp(), velocidadEnY = 0.randomUpTo((game.width()/2)).roundUp())
+		
+		var bolitaNegra = new BolitaNegra(color = "negra", velocidadEnX = 0.randomUpTo(4).roundUp(), velocidadEnY = 0.randomUpTo((4)).roundUp())
 		game.addVisual(bolitaNegra)
+		bolitas.add(bolitaNegra)
 		
 	}
 	
+	method dibujar(dibujo) {
+		game.addVisual(dibujo)
+		//return dibujo
+	}
 	
+	method crearParedes() {
+		
+		const ancho = game.width() - 1
+		const largo = game.height() - 1
+		
+		(0 .. ancho).forEach{ n => posParedInferior.add(new Position(x = n, y = 0))} // bordeAbajo
+		(0 .. ancho).forEach{ n => posParedSuperior.add(new Position(x = n, y = largo))} // bordeArriba 
+		(0 .. largo).forEach{ n => posParedIzquierda.add(new Position(x = 0, y = n))} // bordeIzq 
+		(0 .. largo).forEach{ n => posParedDerecha.add(new Position(x = ancho, y = n))} // bordeDer
+		posParedInferior.forEach({p => self.dibujar(new ParedInferior(position = p))})
+		posParedSuperior.forEach({p => self.dibujar(new ParedSuperior(position = p))})
+		posParedIzquierda.forEach({p => self.dibujar(new ParedIzquierda(position = p))})
+		posParedDerecha.forEach({p => self.dibujar(new ParedSuperior(position = p))})
+		
+	}
 	
 }
+
