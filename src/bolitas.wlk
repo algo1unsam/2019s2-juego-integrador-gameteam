@@ -55,7 +55,7 @@ class Bolita {
 	
 
 	// segun su color es la imagen correspondiente
-   method image() = "C:/wollok/workspace/git/2019s2-juego-integrador-gameteam/bolita.png"//"bolita" + color + ".png"
+   method image() = "bolita" + color + ".png"
 	
 	// Moverse implica cambiar posicion
 	method moverseHacia(unaPosicion) {
