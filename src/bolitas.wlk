@@ -28,10 +28,7 @@ import jugador.*
 
 class BolitaNegra inherits Bolita {
 
-	var property peligrosidad = 0
-	var property color = negra
-
-	method image() = "bolitaNegra" + peligrosidad.toString() + ".png"
+	
 
 	override invertirVelocidadX() {
 		velocidadEnX *= -2
@@ -51,7 +48,7 @@ class Bolita {
 
 	// Cada bolita al comenzar el juego tiene un color, elegido entre una lista de colores, aparece en el centro del tablero y se mueve en una cierta direccion
 	var property color
-	var property position = game.at(0, 0)
+	var property position = game.at(1, 1)
 	var property velocidadEnX
 	var property velocidadEnY
 	
@@ -96,6 +93,16 @@ class Bolita {
 
 	
 	override method image() = "bolitanegra" + peligrosidad.toString() + ".png"
+	
+	override method invertirVelocidadX() {
+		velocidadEnX *= -2
+		if(peligrosidad < 8) peligrosidad +=1
+	}
+
+	override method invertirVelocidadY() {
+		velocidadEnY *= -2
+	    if(peligrosidad < 8) peligrosidad +=1
+	}
 
 
 

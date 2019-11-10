@@ -13,23 +13,20 @@ program abc {
 //	game.ground("ground.png")
 		// VISUALES
 	tablero.crearBolita()
-	tablero.crearBolitaNegra()
+	//tablero.crearBolitaNegra()
 	tablero.crearParedes()
 	
-		// game.addVisual(jugador)
-	//tablero.crearBolita()
-	//tablero.crearBolita()
-	//tablero.crearBolita()
+		
 		// nivel1.cargar()
-		/* game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
-		 * 	game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
-		 * 	game.whenCollideDo(paredSuperior, {bolita => bolita.invertirVelocidadY()})
-		 * 	game.whenCollideDo(paredInferior, {bolita => bolita.invertirVelocidadY()})
-		 * 	
-		 * 	
-		 * 	
-		 * 	
-		 */
+		 game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
+		 game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
+		 game.whenCollideDo(paredSuperior, {bolita => bolita.invertirVelocidadY()})
+		 game.whenCollideDo(paredInferior, {bolita => bolita.invertirVelocidadY()})
+		 	
+		 	
+		 	
+		 	
+		 
 		/* game.whenCollideDo(bolitaNegra, {jugador => if(bolitaNegra.getPeligrosidad() > 10) jugador.perder()
 		 *   											else jugador.perderUnaVida()}) 
 		 game.whenCollideDo(jugador, {bolita => if(bolita.getcolor() == jugador.getColor()) bolita.desaparecer()}*/
