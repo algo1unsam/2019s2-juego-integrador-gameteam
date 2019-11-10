@@ -1,5 +1,5 @@
 
-class Direccion {
+/*class Direccion {
 	method siguiente(position)
 }
 
@@ -21,4 +21,4 @@ object abajo inherits Direccion {
 object arriba inherits Direccion { 
 	override method siguiente(position) = position.up(1) 
 	method opuesto() = abajo
-}
+}*/

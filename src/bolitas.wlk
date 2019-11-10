@@ -4,41 +4,10 @@ import wollok.game.*
 import tableroInicial.*
 import jugador.*
 
-class Bolita {
+/*class Bolita {
 
-	// Cada bolita al comenzar el juego tiene un color, elegido entre una lista de colores, aparece en el centro del tablero y se mueve en una cierta direccion
-	var property color
-	var property position = game.center()
-	var property velocidadEnX
-	var property velocidadEnY
 
-	// segun su color es la imagen correspondiente
-	method image() = "bolita" + color + ".png"
-
-	// Moverse implica cambiar posicion
-	method moverseHacia(unaPosicion) {
-		position = unaPosicion
-	}
-
-	// Genera movimiento horizontal
-	method moverseSegunVelocidadX() {
-		self.moverseHacia(self.position().right(velocidadEnX))
-	}
-
-	// cambia sentido del movimiento horizontal
-	method invertirVelocidadX() {
-		velocidadEnX *= -1
-	}
-
-	// cambia sentido del movimiento vertical
-	method invertirVelocidadY() {
-		velocidadEnY *= -1
-	}
-
-	// Genera movimiento vertical
-	method moverseSegunVelocidadY() {
-		self.moverseHacia(self.position().up(velocidadEnY))
-	}
+	
 
 	method movete(direccion) {
 		game.removeVisual(self)
@@ -74,3 +43,46 @@ class BolitaNegra inherits Bolita {
 
 }
 
+*/
+
+class Bolita {
+
+	// Cada bolita al comenzar el juego tiene un color, elegido entre una lista de colores, aparece en el centro del tablero y se mueve en una cierta direccion
+	var property color
+	var property position = game.at(0, 0)
+	var property velocidadEnX
+	var property velocidadEnY
+	
+
+	// segun su color es la imagen correspondiente
+   method image() = "C:/wollok/workspace/git/2019s2-juego-integrador-gameteam/bolita.png"//"bolita" + color + ".png"
+	
+	// Moverse implica cambiar posicion
+	method moverseHacia(unaPosicion) {
+		position = unaPosicion
+	}
+
+	// Genera movimiento horizontal
+	method moverseSegunVelocidadX() {
+		self.moverseHacia(self.position().right(velocidadEnX))
+	}
+
+	// Genera movimiento vertical
+	method moverseSegunVelocidadY() {
+		self.moverseHacia(self.position().up(velocidadEnY))
+	}
+	
+	// cambia sentido del movimiento horizontal
+	method invertirVelocidadX() {
+		velocidadEnX *= -1
+	}
+
+	// cambia sentido del movimiento vertical
+	method invertirVelocidadY() {
+		velocidadEnY *= -1
+	}
+
+	
+	
+	
+	}

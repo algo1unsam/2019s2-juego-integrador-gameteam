@@ -1,9 +1,9 @@
 
 
 import wollok.game.*
-import direcciones.*
+//import direcciones.*
 
-object jugador {
+/*object jugador {
 
 	var property colorJugador = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ].anyOne()
 	var property position = game.at(4, 3)
@@ -73,4 +73,4 @@ object jugador {
 object jugadorGanador{
 	
 	method image() = "jugadorGanador.png"
-}
+} */

@@ -5,14 +5,14 @@ import bolitas.*
 import pared.*
 import jugador.*
 
-object tablero {
+/*object tablero {
 
 	var property bolitas = []
 	var property colores = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ]
 	var cantBolitasColorJugador = 0
 
 	method crearBolitas(unaCantidadDeBolitas) {
-		times
+	times
 		(unaCantidadDeBolitas)
 		{ self.crearBolita()}
 	}
@@ -35,7 +35,7 @@ object tablero {
 	method eliminarBolitaColorJugador() {
 		cantBolitasColorJugador += -1
 	}
-
+}
 
 object nivel1 {
 
@@ -65,8 +65,7 @@ object nivel1 {
 		
 		posBolitas.forEach{ p => self.dibujar(new Bolita())}
 		
-		/*var property bolitas = []
-  		var property colores = ["amarilla", "roja", "azul", "naranja", "lila", "verde"]
+		
 		
 		method determinaVelX() {
  		return 0.randomUpTo((game.width()))
@@ -75,7 +74,7 @@ object nivel1 {
  		method determinaVelY() {
  		return 0.randomUpTo((game.height()))
  	}
- 	*/
+ 	
 		// jugador
 		game.addVisual(jugador)
 		
@@ -87,7 +86,7 @@ object nivel1 {
 		keyboard.r().onPressDo{ self.restart() }
 		
 		// COLISIÓNES
-		game.whenCollideDo(jugador, { e => jugador.empuja(e) })
+		//game.whenCollideDo(jugador, { e => jugador.empuja(e) })
 		
 	}
 
@@ -100,8 +99,22 @@ object nivel1 {
 		game.addVisual(dibujo)
 		return dibujo
 	}
+}*/
 
+object tablero {
 
-
+	var property bolitas = []
+	var property colores = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ]
+	
+	method crearBolita() {
+		//var colorElegido = colores.anyOne()
+		//var velX = 0.randomUpTo((game.width())).roundUp()
+		//var velY = 0.randomUpTo((game.width())).roundUp()
+		var bolita = new Bolita(color = colores.anyOne(), velocidadEnX = 0.randomUpTo((game.width()/2)).roundUp(), velocidadEnY =  0.randomUpTo((game.width()/2)).roundUp())
+		game.addVisual(bolita)
+		bolitas.add(bolita)
+	}
+	
+	
+	
 }
-
