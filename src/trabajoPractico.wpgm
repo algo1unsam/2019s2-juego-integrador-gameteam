@@ -16,12 +16,13 @@ program abc {
 	//tablero.crearBolitaNegra()
 	tablero.crearParedes()
 	
+
 		
 		// nivel1.cargar()
-		 game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
-		 game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
-		 game.whenCollideDo(paredSuperior, {bolita => bolita.invertirVelocidadY()})
-		 game.whenCollideDo(paredInferior, {bolita => bolita.invertirVelocidadY()})
+		// game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
+		// game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
+		// game.whenCollideDo(paredSuperior, {bolita => paredSuperior.rebotar(bolita)})
+		// game.onCollideDo(paredInferior, {bolita => bolita.invertirVelocidadY()})
 		 	
 		 	
 		 	
@@ -33,6 +34,7 @@ program abc {
     game.onTick(100, "movimientoBolita", { tablero.bolitas().forEach({ bolita =>
 		bolita.moverseSegunVelocidadX()
 		bolita.moverseSegunVelocidadY()
+		bolita.evaluarSiColisionaConAlgunaPared()
 	}) })
 	game.start()
 }

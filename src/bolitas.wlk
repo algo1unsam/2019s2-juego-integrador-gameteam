@@ -80,7 +80,10 @@ class Bolita {
 	method invertirVelocidadY() {
 		velocidadEnY *= -1
 	}
-
+	
+	method evaluarSiColisionaConPared() {
+		game.onCollideDo(self, { pared => pared.rebotar(self)})
+	}
 	
 	
 	

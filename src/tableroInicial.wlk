@@ -5,6 +5,7 @@ import bolitas.*
 import pared.*
 import jugador.*
 
+
 /*object tablero {
 
 	var property bolitas = []
@@ -37,13 +38,7 @@ object nivel1 {
 		
 		
 		
-		method determinaVelX() {
- 		return 0.randomUpTo((game.width()))
- 	}
- 	
- 		method determinaVelY() {
- 		return 0.randomUpTo((game.height()))
- 	}
+	
  	
 		// jugador
 		game.addVisual(jugador)
@@ -80,6 +75,7 @@ object tablero {
 	var posParedDerecha = []
 	var posParedIzquierda = []
 	
+	
 	method crearBolita() {
 		
 		var bolita = new Bolita(color = colores.anyOne(), velocidadEnX = 0.randomUpTo((game.width()/2)).roundUp(), velocidadEnY =  0.randomUpTo((game.width()/2)).roundUp())
@@ -97,13 +93,15 @@ object tablero {
 	
 	method dibujar(dibujo) {
 		game.addVisual(dibujo)
-		//return dibujo
+		return dibujo
 	}
 	
 	method crearParedes() {
 		
 		const ancho = game.width() - 1
 		const largo = game.height() - 1
+		 
+		
 		
 		(0 .. ancho).forEach{ n => posParedInferior.add(new Position(x = n, y = 0))} // bordeAbajo
 		(0 .. ancho).forEach{ n => posParedSuperior.add(new Position(x = n, y = largo))} // bordeArriba 
