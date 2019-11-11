@@ -114,5 +114,7 @@ object tablero {
 		
 	}
 	
+	
+	
 }
 
