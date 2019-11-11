@@ -31,10 +31,10 @@ program abc {
 		/* game.whenCollideDo(bolitaNegra, {jugador => if(bolitaNegra.getPeligrosidad() > 10) jugador.perder()
 		 *   											else jugador.perderUnaVida()}) 
 		 game.whenCollideDo(jugador, {bolita => if(bolita.getcolor() == jugador.getColor()) bolita.desaparecer()}*/
-    game.onTick(100, "movimientoBolita", { tablero.bolitas().forEach({ bolita =>
+    game.onTick(1000, "movimientoBolita", { tablero.bolitas().forEach({ bolita =>
 		bolita.moverseSegunVelocidadX()
 		bolita.moverseSegunVelocidadY()
-		bolita.evaluarSiColisionaConAlgunaPared()
+		
 	}) })
 	game.start()
 }

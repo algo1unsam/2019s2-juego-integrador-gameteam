@@ -78,8 +78,9 @@ object tablero {
 	
 	method crearBolita() {
 		
-		var bolita = new Bolita(color = colores.anyOne(), velocidadEnX = 0.randomUpTo((game.width()/2)).roundUp(), velocidadEnY =  0.randomUpTo((game.width()/2)).roundUp())
-		game.addVisual(bolita)
+		var bolita = new Bolita(color = colores.anyOne(), velocidadEnX = 1 /*0.randomUpTo((game.width()/2)).roundUp()*/, velocidadEnY = 1 /*0.randomUpTo((game.width()/2)).roundUp()*/)
+		//game.addVisual(bolita)
+		bolita.aparecer()
 		bolitas.add(bolita)
 	}
 	

@@ -49,12 +49,19 @@ class Bolita {
 	// Cada bolita al comenzar el juego tiene un color, elegido entre una lista de colores, aparece en el centro del tablero y se mueve en una cierta direccion
 	var property color
 	var property position = game.at(1, 1)
-	var property velocidadEnX
+	var property velocidadEnX 
 	var property velocidadEnY
 	
 
 	// segun su color es la imagen correspondiente
    method image() = "bolita" + color + ".png"
+   
+   method aparecer() {
+   	game.addVisual(self)
+   	game.onCollideDo(self, {objeto => if(objeto!=self) objeto.interactuarCon(self)})
+   }
+   
+   //method interactuarCon(objeto) {}
 	
 	// Moverse implica cambiar posicion
 	method moverseHacia(unaPosicion) {
@@ -63,28 +70,27 @@ class Bolita {
 
 	// Genera movimiento horizontal
 	method moverseSegunVelocidadX() {
-		self.moverseHacia(self.position().right(velocidadEnX))
+		self.moverseHacia(self.position().right(1))
 	}
 
 	// Genera movimiento vertical
 	method moverseSegunVelocidadY() {
-		self.moverseHacia(self.position().up(velocidadEnY))
+		self.moverseHacia(self.position().up(1))
 	}
 	
 	// cambia sentido del movimiento horizontal
 	method invertirVelocidadX() {
 		velocidadEnX *= -1
+		//self.moverseHacia(self.position().left(1))
 	}
 
 	// cambia sentido del movimiento vertical
 	method invertirVelocidadY() {
 		velocidadEnY *= -1
+		//self.moverseHacia(self.position().down(1))
 	}
 	
-	method evaluarSiColisionaConPared() {
-		game.onCollideDo(self, { pared => pared.rebotar(self)})
-	}
-	
+
 	
 	
 	}

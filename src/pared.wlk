@@ -6,16 +6,26 @@ class Pared {
 	var property position
 	
 	method image() = "muro.png"
+}
+
+class ParedVertical inherits Pared {
 	
-	method rebotar(objeto) {
-		objeto.invertirVelocidadX()
+	method interactuarCon(bolita) {
+		bolita.invertirVelocidadX()
 	}
 }
 
-class ParedInferior inherits Pared {}
+class ParedHorizontal inherits Pared {
+	
+	method interactuarCon(bolita) {
+		bolita.invertirVelocidadY()
+	}
+}
 
-class ParedSuperior inherits Pared {}
+class ParedInferior inherits ParedHorizontal {}
 
-class ParedDerecha inherits Pared {}
+class ParedSuperior inherits ParedHorizontal {}
 
-class ParedIzquierda inherits Pared {}
+class ParedDerecha inherits ParedVertical {}
+
+class ParedIzquierda inherits ParedVertical {}
