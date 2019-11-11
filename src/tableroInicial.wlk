@@ -71,9 +71,11 @@ object tablero {
 	var posParedDerecha = []
 	var posParedIzquierda = []
 	var property estadoActual = menuPrincipal
-	method quitarVisual(){
+
+	method quitarVisual() {
 		game.allVisuals().forEach{ visuales => game.removeVisual(visuales)}
 	}
+
 	method cargar() {
 		self.quitarVisual()
 		self.crearBolita()
@@ -117,10 +119,13 @@ object tablero {
 		posParedIzquierda.forEach({ p => self.dibujar(new ParedIzquierda(position = p))})
 		posParedDerecha.forEach({ p => self.dibujar(new ParedSuperior(position = p))})
 	}
-	method reglas() {
+
+	method reglas(imagen) {
 		self.quitarVisual()
+		game.addVisual(imagen)
 		self.estadoActual(opcionReglas)
 	}
+
 }
 
 object menuPrincipal {
@@ -142,6 +147,11 @@ object menuPrincipal {
 		tablero.cargar()
 	}
 
+	method accionDel() {
+		tablero.estadoActual(self)
+		self.navegar()
+		game.start()
+	}
 
 	method accionUp() {
 		game.sound("entrarOpcion.ogg")
@@ -166,9 +176,6 @@ object menuPrincipal {
 		opcionActual.accion()
 	}
 
-	method accionBackspace() {
-	}
-
 }
 
 object opcionSalir {
@@ -186,6 +193,13 @@ object opcionSalir {
 
 }
 
+object reglas {
+
+	method image() = "opcionreglas.jpg"
+
+	method position() = game.at(0, 0)
+
+}
 
 object opcionReglas {
 
@@ -197,7 +211,12 @@ object opcionReglas {
 	method position() = game.at(0, 0)
 
 	method accion() {
-		game.stop()
+		tablero.reglas(reglas)
+	}
+
+	method accionEnter() {
+		tablero.estadoActual(menuPrincipal)
+		game.addVisual(reglas)
 	}
 
 }

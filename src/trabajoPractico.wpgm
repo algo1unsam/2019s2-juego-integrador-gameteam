@@ -19,6 +19,8 @@ program abc {
 	keyboard.up().onPressDo { tablero.estadoActual().accionUp() } 
 	keyboard.down().onPressDo { tablero.estadoActual().accionDown() }
 	keyboard.enter().onPressDo { tablero.estadoActual().accionEnter() }
+	keyboard.del().onPressDo { tablero.estadoActual(menuPrincipal)
+	menuPrincipal.navegar() }
 	
 	// START
 
