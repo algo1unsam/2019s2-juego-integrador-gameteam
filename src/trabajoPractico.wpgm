@@ -12,8 +12,7 @@ program abc {
 	game.width(15)
 	
 	
-	// START
-	//tablero.cargar()
+	
 	
 	//TECLADO
 	
@@ -21,6 +20,8 @@ program abc {
 	keyboard.down().onPressDo { tablero.estadoActual().accionDown() }
 	keyboard.enter().onPressDo { tablero.estadoActual().accionEnter() }
 	
+	// START
+
 	tablero.estadoActual(menuPrincipal)
 	menuPrincipal.navegar()
 	game.start()
