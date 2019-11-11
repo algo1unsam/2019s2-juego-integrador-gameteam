@@ -1,15 +1,43 @@
-//Desde esta Pantalla se ejecuta visual del juego
-import wollok.game.* 
+import wollok.game.*
 import tableroInicial.*
+import pared.*
+import bolitas.*
+import jugador.*
 
-program Bolitas {
-	game.title("Bolita")
-	game.height(10)
-	game.width(10)
-	game.ground("suelo.png")
-
-  
-	nivel1.cargar()
+program abc {
+	// CONFIG	
+	game.title("BolitasRebotinas")
+	game.height(20)
+	game.width(20)
+		// game.ground("suelo.png")
+//	game.ground("ground.png")
+		// VISUALES
+	tablero.crearBolita()
+	//tablero.crearBolitaNegra()
+	tablero.crearParedes()
 	
+
+		
+		// nivel1.cargar()
+		// game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
+		// game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
+		// game.whenCollideDo(paredSuperior, {bolita => paredSuperior.rebotar(bolita)})
+		// game.onCollideDo(paredInferior, {bolita => bolita.invertirVelocidadY()})
+		 	
+		 	
+		 	
+		 	
+		 
+		/* game.whenCollideDo(bolitaNegra, {jugador => if(bolitaNegra.getPeligrosidad() > 10) jugador.perder()
+		 *   											else jugador.perderUnaVida()}) 
+		 game.whenCollideDo(jugador, {bolita => if(bolita.getcolor() == jugador.getColor()) bolita.desaparecer()}*/
+    game.onTick(100, "movimientoBolita", { tablero.bolitas().forEach({ bolita =>
+		bolita.moverseSegunVelocidadX()
+		bolita.moverseSegunVelocidadY()
+		bolita.evaluarSiColisionaConAlgunaPared()
+	}) })
 	game.start()
 }
+//Desde esta Pantalla se ejecuta visual del juego
+// game.start()
+//}
