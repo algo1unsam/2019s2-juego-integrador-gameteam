@@ -10,9 +10,8 @@ program abc {
 	game.height(20)
 	game.width(20)
 		// game.ground("suelo.png")
-		//	game.ground("ground.png")
-	
-	// VISUALES
+//	game.ground("ground.png")
+		// VISUALES
 	tablero.crearBolita()
 	// tablero.crearBolitaNegra()
 	tablero.crearParedes()
