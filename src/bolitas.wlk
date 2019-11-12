@@ -43,10 +43,11 @@ class BolitaNegra inherits Bolita {
 */
 
 class Bolita {
-
+	var property posiciones = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 	// Cada bolita al comenzar el juego tiene un color, elegido entre una lista de colores, aparece en el centro del tablero y se mueve en una cierta direccion
 	var property color
-	var property position = game.at(1, 1)
+	var property position = game.at(posiciones.anyOne(), posiciones.anyOne())
+	
 	var property velocidadEnX 
 	var property velocidadEnY
 	
@@ -59,7 +60,9 @@ class Bolita {
    	game.onCollideDo(self, {objeto => if(objeto!=self) objeto.interactuarCon(self)})
    }
    
-   //method interactuarCon(objeto) {}
+   method interactuarCon(bolita) {
+   	
+   }
 	
 	// Moverse implica cambiar posicion
 	method moverseHacia(unaPosicion) {
@@ -68,12 +71,12 @@ class Bolita {
 
 	// Genera movimiento horizontal
 	method moverseSegunVelocidadX() {
-		self.moverseHacia(self.position().right(1))
+		self.moverseHacia(self.position().right(velocidadEnX))
 	}
 
 	// Genera movimiento vertical
 	method moverseSegunVelocidadY() {
-		self.moverseHacia(self.position().up(1))
+		self.moverseHacia(self.position().up(velocidadEnY))
 	}
 	
 	// cambia sentido del movimiento horizontal
@@ -97,17 +100,20 @@ class Bolita {
 	class BolitaNegra inherits Bolita {
 
 	var property peligrosidad = 0
+	
+	
+	
 
 	
 	override method image() = "bolitanegra" + peligrosidad.toString() + ".png"
 	
 	override method invertirVelocidadX() {
-		velocidadEnX *= -2
+		velocidadEnX *= -1
 		if(peligrosidad < 8) peligrosidad +=1
 	}
 
 	override method invertirVelocidadY() {
-		velocidadEnY *= -2
+		velocidadEnY *= -1
 	    if(peligrosidad < 8) peligrosidad +=1
 	}
 

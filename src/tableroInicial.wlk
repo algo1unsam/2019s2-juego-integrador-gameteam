@@ -66,6 +66,7 @@ object tablero {
 
 	var property bolitas = []
 	var property colores = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ]
+	var velocidadesPosibles = [1, -1]
 	var posParedInferior = []
 	var posParedSuperior = []
 	var posParedDerecha = []
@@ -84,24 +85,24 @@ object tablero {
 		game.onTick(100, "movimientoBolita", { self.bolitas().forEach({ bolita =>
 			bolita.moverseSegunVelocidadX()
 			bolita.moverseSegunVelocidadY()
-			bolita.evaluarSiColisionaConAlgunaPared()
+			
 		})})
 	}
 
 	method crearBolita() {
-		var bolita = new Bolita(color = colores.anyOne(), velocidadEnX = 1 /*0.randomUpTo((game.width()/2)).roundUp()*/ , velocidadEnY = 1 /*0.randomUpTo((game.width()/2)).roundUp()*/ )
+		var bolita = new Bolita(color = colores.anyOne(), velocidadEnX = velocidadesPosibles.anyOne() /*0.randomUpTo((game.width()/2)).roundUp()*/ , velocidadEnY = velocidadesPosibles.anyOne() /*0.randomUpTo((game.width()/2)).roundUp()*/ )
 			// game.addVisual(bolita)
 		bolita.aparecer()
 		bolitas.add(bolita)
 	}
 
-	/*method crearBolitaNegra() {
-	 * 	
-	 * 	var bolitaNegra = new BolitaNegra(color = "negra", velocidadEnX = 0.randomUpTo(4).roundUp(), velocidadEnY = 0.randomUpTo((4)).roundUp())
-	 * 	game.addVisual(bolitaNegra)
-	 * 	bolitas.add(bolitaNegra)
-	 * 	
-	 }*/
+	method crearBolitaNegra() {
+	 	
+	 	var bolitaNegra = new BolitaNegra(color = "negra", velocidadEnX = velocidadesPosibles.anyOne(), velocidadEnY = velocidadesPosibles.anyOne())
+	 	bolitaNegra.aparecer()
+	 	bolitas.add(bolitaNegra)
+	 	
+	 }
 	method dibujar(dibujo) {
 		game.addVisual(dibujo)
 		return dibujo
@@ -117,7 +118,7 @@ object tablero {
 		posParedInferior.forEach({ p => self.dibujar(new ParedInferior(position = p))})
 		posParedSuperior.forEach({ p => self.dibujar(new ParedSuperior(position = p))})
 		posParedIzquierda.forEach({ p => self.dibujar(new ParedIzquierda(position = p))})
-		posParedDerecha.forEach({ p => self.dibujar(new ParedSuperior(position = p))})
+		posParedDerecha.forEach({ p => self.dibujar(new ParedDerecha(position = p))})
 	}
 
 	method reglas(imagen) {

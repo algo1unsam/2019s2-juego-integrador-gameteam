@@ -16,31 +16,37 @@ program abc {
 	
 	//TECLADO
 	
-	keyboard.up().onPressDo { tablero.estadoActual().accionUp() } 
+	/*keyboard.up().onPressDo { tablero.estadoActual().accionUp() } 
 	keyboard.down().onPressDo { tablero.estadoActual().accionDown() }
 	keyboard.enter().onPressDo { tablero.estadoActual().accionEnter() }
 	keyboard.del().onPressDo { tablero.estadoActual(menuPrincipal)
-	menuPrincipal.navegar() }
+	menuPrincipal.navegar() }*/
 	
 	// START
 
-	tablero.estadoActual(menuPrincipal)
-	menuPrincipal.navegar()
-	game.start()
-}
-// game.ground("suelo.png")
+	//tablero.estadoActual(menuPrincipal)
+	//menuPrincipal.navegar()
+	//game.start()
+//}
+ game.ground("suelo.png")
 // game.ground("ground.png")
 // VISUALES
-// tablero.crearBolitaNegra()
+  4.times({i => tablero.crearBolita()})
+ //tablero.crearBolita()
+// tablero.crearBolita()
+ //tablero.crearBolita()
+ tablero.crearBolitaNegra()
+ tablero.crearParedes()
+ game.addVisual(jugador)
+ 
+ game.onTick(100, "movimientoBolita", { tablero.bolitas().forEach({ bolita =>
+			bolita.moverseSegunVelocidadX()
+			bolita.moverseSegunVelocidadY()
+			
+		})})
 // nivel1.cargar()
-// game.whenCollideDo(paredIzquierda, {bolita => bolita.invertirVelocidadX()})
-// game.whenCollideDo(paredDerecha, {bolita => bolita.invertirVelocidadX()})
-// game.whenCollideDo(paredSuperior, {bolita => paredSuperior.rebotar(bolita)})
-// game.onCollideDo(paredInferior, {bolita => bolita.invertirVelocidadY()})
-/* game.whenCollideDo(bolitaNegra, {jugador => if(bolitaNegra.getPeligrosidad() > 10) jugador.perder()
- *   											else jugador.perderUnaVida()}) 
- * 	
- game.whenCollideDo(jugador, {bolita => if(bolita.getcolor() == jugador.getColor()) bolita.desaparecer()}*/
+
+
 //Desde esta Pantalla se ejecuta visual del juego
-// game.start()
-//}
+ game.start()
+}

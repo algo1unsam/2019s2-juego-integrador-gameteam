@@ -3,16 +3,22 @@
 import wollok.game.*
 //import direcciones.*
 
-/*object jugador {
+object jugador {
 
 	var property colorJugador = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ].anyOne()
 	var property position = game.at(4, 3)
 	var property vidas = 3
-	var direccion = arriba
+	//var direccion = arriba
 
 	method image() = "jugador" + colorJugador + ".png"
+	
+	method interactuarCon(bolita) {
+		 if(bolita.color() == self.colorJugador()) bolita.desaparecer()
+		 if(bolita.color() == "negra" and bolita.peligrosidad() < 9)  self.perderUnaVida()
+		 else self.perder()
+	}
 
-	method empuja(unElemento) {
+/*	method empuja(unElemento) {
 		try
 			unElemento.movete(direccion)
 		catch e {
@@ -57,11 +63,11 @@ import wollok.game.*
 	method setDireccion(unaDireccion) {
 		direccion = unaDireccion
 	}
-
+*/
 	method perder() {
 		game.removeVisual(self)
-		game.addVisual(calavera)
-		game.addVisual(cero) // en el contador 0 vidas 
+		//game.addVisual(calavera)
+		//game.addVisual(cero) // en el contador 0 vidas 
 	}
 
 	method perderUnaVida() {
@@ -70,7 +76,7 @@ import wollok.game.*
 
 }
 
-object jugadorGanador{
+/*object jugadorGanador{
 	
 	method image() = "jugadorGanador.png"
 } */
