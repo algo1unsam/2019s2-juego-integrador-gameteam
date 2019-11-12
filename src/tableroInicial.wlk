@@ -66,7 +66,7 @@ object tablero {
 
 	var property bolitas = []
 	var property colores = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ]
-	var velocidadesPosibles = [1, -1]
+	var velocidadesPosibles = [ 1, -1 ]
 	var posParedInferior = []
 	var posParedSuperior = []
 	var posParedDerecha = []
@@ -86,7 +86,6 @@ object tablero {
 		game.onTick(100, "movimientoBolita", { self.bolitas().forEach({ bolita =>
 			bolita.moverseSegunVelocidadX()
 			bolita.moverseSegunVelocidadY()
-			
 		})})
 	}
 
@@ -98,12 +97,11 @@ object tablero {
 	}
 
 	method crearBolitaNegra() {
-	 	
-	 	var bolitaNegra = new BolitaNegra(color = "negra", velocidadEnX = velocidadesPosibles.anyOne(), velocidadEnY = velocidadesPosibles.anyOne())
-	 	bolitaNegra.aparecer()
-	 	bolitas.add(bolitaNegra)
-	 	
-	 }
+		var bolitaNegra = new BolitaNegra(color = "negra", velocidadEnX = velocidadesPosibles.anyOne(), velocidadEnY = velocidadesPosibles.anyOne())
+		bolitaNegra.aparecer()
+		bolitas.add(bolitaNegra)
+	}
+
 	method dibujar(dibujo) {
 		game.addVisual(dibujo)
 		return dibujo
@@ -127,16 +125,15 @@ object tablero {
 		game.addVisual(imagen)
 		self.estadoActual(opcionReglas)
 	}
-	
+
 	method cuentaCantBolitasColorJugador() {
-		return bolitas.count({bolita => bolita.color() == jugador.colorJugador()})
+		return bolitas.count({ bolita => bolita.color() == jugador.colorJugador() })
 	}
-	
+
 	method eliminar(unaBolita) {
 		bolitas.remove(unaBolita)
 	}
-	
-	
+
 }
 
 object menuPrincipal {
@@ -233,15 +230,18 @@ object opcionReglas {
 }
 
 object cartelBolitas {
+
 	var property position = game.at(game.width(), game.height())
-	
-	
-	method image() = "3.png"//tablero.cantBolitasColorJugador() + ".png"
+
+	method image() = "3.png" // tablero.cantBolitasColorJugador() + ".png"
+
 }
 
 object cartelVidas {
+
 	var property position = game.at(9, game.height())
-	
+
 	method image() = jugador.vidas().toString() + ".png"
+
 }
 

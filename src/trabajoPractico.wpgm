@@ -5,50 +5,38 @@ import bolitas.*
 import jugador.*
 
 program abc {
-	
 	// CONFIG	
 	game.title("BolitasRebotinas")
 	game.height(18)
 	game.width(20)
-	
-	
-	
-	
-	//TECLADO
-	
-	/*keyboard.up().onPressDo { tablero.estadoActual().accionUp() } 
-	keyboard.down().onPressDo { tablero.estadoActual().accionDown() }
-	keyboard.enter().onPressDo { tablero.estadoActual().accionEnter() }
-	keyboard.del().onPressDo { tablero.estadoActual(menuPrincipal)
-	menuPrincipal.navegar() }*/
-	
-	// START
-
-	//tablero.estadoActual(menuPrincipal)
-	//menuPrincipal.navegar()
-	//game.start()
+		// TECLADO
+		/*keyboard.up().onPressDo { tablero.estadoActual().accionUp() } 
+		 * keyboard.down().onPressDo { tablero.estadoActual().accionDown() }
+		 * keyboard.enter().onPressDo { tablero.estadoActual().accionEnter() }
+		 * keyboard.del().onPressDo { tablero.estadoActual(menuPrincipal)
+		 menuPrincipal.navegar() }*/
+		// START
+		// tablero.estadoActual(menuPrincipal)
+		// menuPrincipal.navegar()
+		// game.start()
 //}
- game.ground("suelo.png")
+	game.ground("suelo.png")
 // game.ground("ground.png")
 // VISUALES
 	game.addVisual(cartelBolitas)
 	game.addVisual(cartelVidas)
-  4.times({i => tablero.crearBolita()})
- //tablero.crearBolita()
+	4.times({ i => tablero.crearBolita() })
+		// tablero.crearBolita()
 // tablero.crearBolita()
- //tablero.crearBolita()
- tablero.crearBolitaNegra()
- tablero.crearParedes()
- game.addVisual(jugador)
- 
- game.onTick(100, "movimientoBolita", { tablero.bolitas().forEach({ bolita =>
-			bolita.moverseSegunVelocidadX()
-			bolita.moverseSegunVelocidadY()
-			
-		})})
+		// tablero.crearBolita()
+	tablero.crearBolitaNegra()
+	tablero.crearParedes()
+	game.addVisual(jugador)
+	game.onTick(100, "movimientoBolita", { tablero.bolitas().forEach({ bolita =>
+		bolita.moverseSegunVelocidadX()
+		bolita.moverseSegunVelocidadY()
+	}) })
 // nivel1.cargar()
-
-
 //Desde esta Pantalla se ejecuta visual del juego
- game.start()
+	game.start()
 }

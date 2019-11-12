@@ -10,14 +10,14 @@ class Pared {
 
 class ParedVertical inherits Pared {
 	
-	method interactuarCon(bolita) {
+	method interactuarConBolita(bolita) {
 		bolita.invertirVelocidadX()
 	}
 }
 
 class ParedHorizontal inherits Pared {
 	
-	method interactuarCon(bolita) {
+	method interactuarConBolita(bolita) {
 		bolita.invertirVelocidadY()
 	}
 }
