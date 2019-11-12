@@ -72,6 +72,7 @@ object tablero {
 	var posParedDerecha = []
 	var posParedIzquierda = []
 	var property estadoActual = menuPrincipal
+	var property cantBolitasColorJugador = self.cuentaCantBolitasColorJugador()
 
 	method quitarVisual() {
 		game.allVisuals().forEach{ visuales => game.removeVisual(visuales)}
@@ -110,11 +111,11 @@ object tablero {
 
 	method crearParedes() {
 		const ancho = game.width() - 1
-		const largo = game.height() - 1
+		const alto = game.height() - 2
 		(0 .. ancho).forEach{ n => posParedInferior.add(new Position(x = n, y = 0))} // bordeAbajo
-		(0 .. ancho).forEach{ n => posParedSuperior.add(new Position(x = n, y = largo))} // bordeArriba 
-		(0 .. largo).forEach{ n => posParedIzquierda.add(new Position(x = 0, y = n))} // bordeIzq 
-		(0 .. largo).forEach{ n => posParedDerecha.add(new Position(x = ancho, y = n))} // bordeDer
+		(0 .. ancho).forEach{ n => posParedSuperior.add(new Position(x = n, y = alto))} // bordeArriba 
+		(0 .. alto).forEach{ n => posParedIzquierda.add(new Position(x = 0, y = n))} // bordeIzq 
+		(0 .. alto).forEach{ n => posParedDerecha.add(new Position(x = ancho, y = n))} // bordeDer
 		posParedInferior.forEach({ p => self.dibujar(new ParedInferior(position = p))})
 		posParedSuperior.forEach({ p => self.dibujar(new ParedSuperior(position = p))})
 		posParedIzquierda.forEach({ p => self.dibujar(new ParedIzquierda(position = p))})
@@ -126,7 +127,16 @@ object tablero {
 		game.addVisual(imagen)
 		self.estadoActual(opcionReglas)
 	}
-
+	
+	method cuentaCantBolitasColorJugador() {
+		return bolitas.count({bolita => bolita.color() == jugador.colorJugador()})
+	}
+	
+	method eliminar(unaBolita) {
+		bolitas.remove(unaBolita)
+	}
+	
+	
 }
 
 object menuPrincipal {
@@ -220,5 +230,18 @@ object opcionReglas {
 		game.addVisual(reglas)
 	}
 
+}
+
+object cartelBolitas {
+	var property position = game.at(game.width(), game.height())
+	
+	
+	method image() = "3.png"//tablero.cantBolitasColorJugador() + ".png"
+}
+
+object cartelVidas {
+	var property position = game.at(9, game.height())
+	
+	method image() = jugador.vidas().toString() + ".png"
 }
 

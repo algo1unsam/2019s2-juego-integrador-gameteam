@@ -14,8 +14,11 @@ object jugador {
 	
 	method interactuarCon(bolita) {
 		 if(bolita.color() == self.colorJugador()) bolita.desaparecer()
-		 if(bolita.color() == "negra" and bolita.peligrosidad() < 9)  self.perderUnaVida()
-		 else self.perder()
+		 if(bolita.color() == "negra") {
+		 	if(bolita.peligrosidad() < 9 and vidas > 1)  self.perderUnaVida()
+		 	else self.perder()
+		 	}
+		 
 	}
 
 /*	method empuja(unElemento) {

@@ -31,6 +31,8 @@ program abc {
  game.ground("suelo.png")
 // game.ground("ground.png")
 // VISUALES
+	game.addVisual(cartelBolitas)
+	game.addVisual(cartelVidas)
   4.times({i => tablero.crearBolita()})
  //tablero.crearBolita()
 // tablero.crearBolita()
