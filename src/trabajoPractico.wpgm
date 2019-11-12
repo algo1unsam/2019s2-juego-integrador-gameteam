@@ -28,9 +28,9 @@ program abc {
 	tablero.crearParedes()
 	game.addVisual(jugador)
 	game.addVisual(cartelJugador)
-	tablero.crearBolitaColorJugador()
 	game.addVisual(cartelBolitas)
-	game.addVisual(cartelVidas)
+	 game.addVisual(cartelVidas)
+	 game.addVisual(bolitaColorJugador)
 	game.onTick(100, "movimientoBolita", { tablero.bolitas().forEach({ bolita =>
 		bolita.moverseSegunVelocidadX()
 		bolita.moverseSegunVelocidadY()

@@ -24,21 +24,7 @@ import jugador.*
 
  * }
 
- * class BolitaNegra inherits Bolita {
-
- * 	
-
- * 	override invertirVelocidadX() {
- * 		velocidadEnX *= -2
- * 		if(peligrosidad < 8) peligrosidad +=1
- * 	}
-
- * 	override invertirVelocidadY() {
- * 		velocidadEnY *= -2
- * 	    if(peligrosidad < 8) peligrosidad +=1
- * 	}
-
- * }
+ * 
 
  */
 class Bolita {
@@ -61,7 +47,9 @@ class Bolita {
 	}
 
 	method interactuarConJugador() {
-		if (self.color() == jugador.colorJugador()) self.desaparecer()
+		if (self.color() == jugador.colorJugador()) {self.desaparecer()
+			game.say(jugador, "Super")
+		}
 	}
 
 	// Moverse implica cambiar posicion
@@ -91,11 +79,15 @@ class Bolita {
 	// self.moverseHacia(self.position().down(1))
 	}
 	
-	method interactuarConBolita(bolita) {}
+	method interactuarConBolita(bolita) {
+		self.invertirVelocidadX()
+		self.invertirVelocidadY()
+	}
 
 	method desaparecer() {
 		game.removeVisual(self)
 		tablero.eliminar(self)
+		tablero.cantBolitasColorJugador(tablero.cantBolitasColorJugador() - 1)
 	}
 
 }

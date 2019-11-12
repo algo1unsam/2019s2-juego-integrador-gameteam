@@ -11,7 +11,7 @@ object jugador {
 	method image() = "jugador" + colorJugador + ".png"
 
 	method interactuarConBolita(bolita) {
-		bolita.interactuarConjugador()
+		bolita.interactuarConJugador()
 	}
 
 	/*	method empuja(unElemento) {

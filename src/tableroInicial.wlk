@@ -72,8 +72,7 @@ object tablero {
 	var posParedDerecha = []
 	var posParedIzquierda = []
 	var property estadoActual = menuPrincipal
-	var property cantBolitasColorJugador = self.cuentaCantBolitasColorJugador()
-	
+	var property cantBolitasColorJugador = self.cuentaBolitasColorJugador()
 
 	method quitarVisual() {
 		game.allVisuals().forEach{ visuales => game.removeVisual(visuales)}
@@ -126,17 +125,14 @@ object tablero {
 		self.estadoActual(opcionReglas)
 	}
 
-	method cuentaCantBolitasColorJugador() {
-		return bolitas.count({ bolita => bolita.color() == jugador.colorJugador() })
+	method cuentaBolitasColorJugador() {
+		var cantidad = 0
+		 bolitas.forEach({ bolita => if(bolita.color() == jugador.colorJugador()) cantidad += 1 })
+		 return cantidad
 	}
 
 	method eliminar(unaBolita) {
 		bolitas.remove(unaBolita)
-	}
-	
-	method crearBolitaColorJugador() {
-		const bolitaColorJugador = new Bolita(color = jugador.colorJugador(), position(game.at(game.width()- 3, game.height() - 1)))
-		game.addVisual(bolitaColorJugador)
 	}
 
 }
@@ -236,9 +232,9 @@ object opcionReglas {
 
 object cartelBolitas {
 
-	var property position = game.at(game.width()- 1, game.height() - 1)
+	var property position = game.at(game.width() - 1, game.height() - 1)
 
-	method image() = tablero.cantBolitasColorJugador() + ".png"
+	method image() = tablero.cantBolitasColorJugador().toString() + ".png"
 
 }
 
@@ -251,13 +247,18 @@ object cartelVidas {
 }
 
 object cartelJugador {
-	
-	var property position = game.at( 7, game.height() - 1)
-	
+
+	var property position = game.at(7, game.height() - 1)
+
 	method image() = jugador.image()
+
 }
 
+object bolitaColorJugador {
 
+	var property position = game.at(game.width() - 3, game.height() - 1)
 
+	method image() = "bolita" + jugador.colorJugador() + ".png"
 
+}
 
