@@ -8,8 +8,8 @@ program abc {
 	
 	// CONFIG	
 	game.title("BolitasRebotinas")
-	game.height(15)
-	game.width(15)
+	game.height(18)
+	game.width(20)
 	
 	
 	
