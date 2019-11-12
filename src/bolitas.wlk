@@ -90,6 +90,8 @@ class Bolita {
 		velocidadEnY *= -1
 	// self.moverseHacia(self.position().down(1))
 	}
+	
+	method interactuarConBolita(bolita) {}
 
 	method desaparecer() {
 		game.removeVisual(self)

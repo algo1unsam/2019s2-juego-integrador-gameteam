@@ -73,6 +73,7 @@ object tablero {
 	var posParedIzquierda = []
 	var property estadoActual = menuPrincipal
 	var property cantBolitasColorJugador = self.cuentaCantBolitasColorJugador()
+	
 
 	method quitarVisual() {
 		game.allVisuals().forEach{ visuales => game.removeVisual(visuales)}
@@ -91,7 +92,6 @@ object tablero {
 
 	method crearBolita() {
 		var bolita = new Bolita(color = colores.anyOne(), velocidadEnX = velocidadesPosibles.anyOne() /*0.randomUpTo((game.width()/2)).roundUp()*/ , velocidadEnY = velocidadesPosibles.anyOne() /*0.randomUpTo((game.width()/2)).roundUp()*/ )
-			// game.addVisual(bolita)
 		bolita.aparecer()
 		bolitas.add(bolita)
 	}
@@ -132,6 +132,11 @@ object tablero {
 
 	method eliminar(unaBolita) {
 		bolitas.remove(unaBolita)
+	}
+	
+	method crearBolitaColorJugador() {
+		const bolitaColorJugador = new Bolita(color = jugador.colorJugador(), position(game.at(game.width()- 3, game.height() - 1)))
+		game.addVisual(bolitaColorJugador)
 	}
 
 }
@@ -231,17 +236,28 @@ object opcionReglas {
 
 object cartelBolitas {
 
-	var property position = game.at(game.width(), game.height())
+	var property position = game.at(game.width()- 1, game.height() - 1)
 
-	method image() = "3.png" // tablero.cantBolitasColorJugador() + ".png"
+	method image() = tablero.cantBolitasColorJugador() + ".png"
 
 }
 
 object cartelVidas {
 
-	var property position = game.at(9, game.height())
+	var property position = game.at(9, game.height() - 1)
 
 	method image() = jugador.vidas().toString() + ".png"
 
 }
+
+object cartelJugador {
+	
+	var property position = game.at( 7, game.height() - 1)
+	
+	method image() = jugador.image()
+}
+
+
+
+
 
