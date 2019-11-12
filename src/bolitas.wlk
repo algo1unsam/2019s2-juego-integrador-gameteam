@@ -95,11 +95,9 @@ class Bolita {
 	method desaparecer() {
 		game.removeVisual(self)
 		tablero.eliminar(self)
-
-	
 	}
 	
-	
+}	
 	class BolitaNegra inherits Bolita {
 
 	var property peligrosidad = 0
