@@ -32,3 +32,4 @@ class ParedSuperior inherits ParedHorizontal {}
 class ParedDerecha inherits ParedVertical {}
 
 class ParedIzquierda inherits ParedVertical {}
+

@@ -64,9 +64,9 @@ object jugador {
 	 * 	}
 	 */
 	method perder() {
-		game.removeVisual(self)
 		game.removeVisual(cartelVidas)
 		self.vidas(0)
+		game.removeVisual(self)
 		game.addVisual(cartelVidas)
 	}
 

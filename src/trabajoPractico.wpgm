@@ -23,10 +23,12 @@ program abc {
 	game.ground("suelo.png")
 // game.ground("ground.png")
 // VISUALES
-	4.times({ i => tablero.crearBolita() })
-	tablero.crearBolitaNegra()
 	tablero.crearParedes()
-	game.addVisual(jugador)
+	
+	10.times({ i => tablero.crearBolita() })
+	tablero.crearBolitaNegra()
+	
+	game.addVisualCharacter(jugador)
 	game.addVisual(cartelJugador)
 	game.addVisual(cartelBolitas)
 	 game.addVisual(cartelVidas)

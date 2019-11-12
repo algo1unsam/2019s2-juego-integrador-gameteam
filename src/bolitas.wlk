@@ -44,7 +44,7 @@ class Bolita {
 	method aparecer() {
 		game.addVisual(self)
 		game.onCollideDo(self, { objeto =>
-			if (objeto != self) objeto.interactuarConBolita(self)
+			 objeto.interactuarConBolita(self)
 		})
 	}
 
@@ -87,9 +87,9 @@ class Bolita {
 	}
 
 	method desaparecer() {
-		game.removeVisual(self)
+		
 		tablero.eliminar(self)
-		tablero.cantBolitasColorJugador(tablero.cantBolitasColorJugador() - 1)
+		//tablero.cantBolitasColorJugador(tablero.cantBolitasColorJugador() - 1)
 	}
 
 }

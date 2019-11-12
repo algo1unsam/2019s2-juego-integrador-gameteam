@@ -5,15 +5,7 @@ import jugador.*
 
 /*object tablero {
 
- * 	var property bolitas = []
- * 	var property colores = [ "amarilla", "roja", "azul", "naranja", "lila", "verde" ]
- * 	var cantBolitasColorJugador = 0
-
- * 	method crearBolitas(unaCantidadDeBolitas) {
- * 	times
- * 		(unaCantidadDeBolitas)
- * 		{ self.crearBolita()}
- * 	}
+ * 	
 
  * 	
 
@@ -91,6 +83,7 @@ object tablero {
 
 	method crearBolita() {
 		var bolita = new Bolita(color = colores.anyOne(), velocidadEnX = velocidadesPosibles.anyOne() /*0.randomUpTo((game.width()/2)).roundUp()*/ , velocidadEnY = velocidadesPosibles.anyOne() /*0.randomUpTo((game.width()/2)).roundUp()*/ )
+		if (bolitas.all({pelotita => pelotita.position() != bolita.position()}))
 		bolita.aparecer()
 		bolitas.add(bolita)
 	}
@@ -118,6 +111,8 @@ object tablero {
 		posParedIzquierda.forEach({ p => self.dibujar(new ParedIzquierda(position = p))})
 		posParedDerecha.forEach({ p => self.dibujar(new ParedDerecha(position = p))})
 	}
+	
+	
 
 	method reglas(imagen) {
 		self.quitarVisual()
@@ -133,6 +128,7 @@ object tablero {
 
 	method eliminar(unaBolita) {
 		bolitas.remove(unaBolita)
+		game.removeVisual(unaBolita)
 	}
 
 }
@@ -234,7 +230,7 @@ object cartelBolitas {
 
 	var property position = game.at(game.width() - 1, game.height() - 1)
 
-	method image() = tablero.cantBolitasColorJugador().toString() + ".png"
+	method image() = tablero.cuentaBolitasColorJugador().toString() + ".png"
 
 }
 
