@@ -1,4 +1,7 @@
 import wollok.game.*
+import bolitas.*
+import pared.*
+import tableroInicial.*
 
 //import direcciones.*
 object jugador {

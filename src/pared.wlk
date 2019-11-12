@@ -2,6 +2,9 @@ import wollok.game.*
 import tableroInicial.*
 import jugador.*
 
+import bolitas.*
+
+
 class Pared {
 	var property position
 	

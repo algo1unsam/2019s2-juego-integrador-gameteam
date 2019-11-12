@@ -1,6 +1,8 @@
 import wollok.game.*
 import tableroInicial.*
 import jugador.*
+import pared.*
+
 
 /*class Bolita {
 
